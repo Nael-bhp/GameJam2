@@ -12,11 +12,6 @@ BLEU_CLAIR = (173, 216, 230)
 NOIR = (0,0,0)
 BLANC = (255,255,255)
 
-fleche1 = fleche.Fleche("UP", 1, "./Img/Fleche_Up/sprite_0.png", 250, 600)
-fleche2 = fleche.Fleche("UP", 2, "./Img/Fleche_Up/sprite_0.png", 250, 600)
-fleche3 = fleche.Fleche("UP", 3, "./Img/Fleche_Up/sprite_0.png", 250, 600)
-
-listeFleche = [fleche1, fleche2, fleche3]
 
 question1 = question.Question("Qui a inventé Linux ?")
 reponse_fausse1 = "JP"
@@ -56,6 +51,8 @@ class Jeu:
         # Creation des background à la main (mais faire par fichier après)
         listeBg = ["./Img/bg_fleches/iut.png","./Img/bg_fleches/amphi.png","./Img//bg_fleches/camion.png","./Img//bg_fleches/classe.png","./Img//bg_fleches/center.png"]
         
+        listeSon = ["./songs/"]
+        
         if len(listeBoss) > len(listeBg) : _max = len(listeBg)
         else : _max = len(listeBoss)
         
@@ -91,6 +88,8 @@ class Jeu:
     def menu_prinipal(self):
         continuer = True
 
+        pygame.mixer.music.load('./songs/ecran_titre.mp3')
+        pygame.mixer.music.set_volume(0.2)
         pygame.mixer.music.play()
 
 
@@ -416,6 +415,13 @@ class Jeu:
             
     def loadNiveau(self, current_niveau, currentIndex):
         
+        
+        if (current_niveau.get_boss().getMusic() != None):
+            #pygame.mixer.init()
+            pygame.mixer.music.load(current_niveau.get_boss().getMusic()) # current_niveau.get_boss().getMusic()
+            pygame.mixer.music.set_volume(0.2)
+            pygame.mixer.music.play()
+        
         #Permet de remttre toute les flèches à l'ordonnée initiale
         for f in current_niveau.get_fleches():
             f.set_ordonnee(600)
@@ -613,7 +619,9 @@ class Jeu:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     #Changement de fenêtre pour l'écran titre
                     if(bouton_retour.checkForInput(souris_utilisateur)):
+                        pygame.mixer.music.pause()
                         self.selectionNiveau()
+                        
                 
                 if event.type == pygame.KEYDOWN:
                     
@@ -664,8 +672,6 @@ def main():
     #Initialisation pour le son
     pygame.mixer.init()
 
-    pygame.mixer.music.load('./songs/ecran_titre.mp3')
-    pygame.mixer.music.set_volume(0.2)
     # Donne un nom à la fenêtre 
     pygame.display.set_caption("Le monde merveilleux de l'IUT")
     

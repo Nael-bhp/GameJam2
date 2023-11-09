@@ -4,7 +4,7 @@ import typing
 import random
 
 class Niveau:
-    def __init__(self, num, decor, boss, score = 0, music = None):
+    def __init__(self, num, decor, boss, score = 0):
         self.num = num
         self.boss = boss
         self.decor = decor
@@ -12,7 +12,7 @@ class Niveau:
         self.questions = []
         self.score = score
         self.scoreNecessaire = 0
-        self.music=music
+
         
         # Si le tps de l'implémenter
         self.isWon = False
@@ -22,11 +22,7 @@ class Niveau:
         self.current_flech = -1
         self.current_question = -1
 
-    def get_music(self):
-        return self.music
     
-    def set_music(self,music) :
-        self.music = music 
         
     def get_num(self):
         return self.num

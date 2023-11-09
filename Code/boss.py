@@ -3,14 +3,15 @@
 
 class Boss():
     
-    def __init__(self, nom ="", taux_reussite=0, img_perso=None):
+    def __init__(self, nom ="", taux_reussite=0, img_perso=None, music = None):
         self.nom=nom
         self.taux_reussite = taux_reussite
         if img_perso==None: self.img_perso = ["./Img/user.png"]
         else: 
             self.img_perso=img_perso
+        self.music = music
             
-        
+    
     # Setters
     def setAll(self,dicoAttributs):
         for cle, valeur in dicoAttributs.items():
@@ -20,6 +21,9 @@ class Boss():
                 print(f"L'attribut {cle} n'existe pas dans la classe.")
         
         # A terminer après avoir fini Outil
+       
+    def getMusic(self): # le chemin
+        return self.music 
         
     #Getters
     def getNom(self):
