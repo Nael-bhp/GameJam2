@@ -1,0 +1,2 @@
+../background_game.png
+../background_game1.png
