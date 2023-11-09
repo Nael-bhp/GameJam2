@@ -150,26 +150,42 @@ class Niveau:
         self.score += val
 
     
-    def generer_fleche_aleatoire():
+    def generer_fleche_aleatoire(self):
         abscisse = 250
         ordonnee = 600
         fleches = []
         apparition = 0
-        a = 1
-        b = 3
+        a = 0
+        b = 1
         directions_possibles = ["UP", "DOWN", "LEFT", "RIGHT"]
-        direction_aleatoire = random.choice(directions_possibles)
-        img_possibles = ["./Img/Fleche_Up/sprite_0.png", ".//", ".///", ".////"]
-        img_aleatoire = random.choice(img_possibles)
+
         for i in range(100):
-            fleche.Fleche(direction_aleatoire, apparition, img_aleatoire, abscisse, ordonnee)
+            direction_aleatoire = random.choice(directions_possibles)
+            
+            if(direction_aleatoire == "UP"):
+                img = "./Img/Fleche_Up/sprite_0.png"
+            elif(direction_aleatoire == "DOWN"):
+                img = "./Img/Fleche_Down/sprite_0.png"
+            elif(direction_aleatoire == "LEFT"):
+                img = "./Img/Fleche_Left/sprite_0.png"
+            else :
+                img = "./Img/Fleche_Right/Fleche_Droite0.png"
+
+
+            apparition = random.uniform(a, b)
+
+            a = apparition+0.2
+            b = apparition + 1
+
+            current_fleche = fleche.Fleche(direction_aleatoire, apparition, img, abscisse, ordonnee)
             if (direction_aleatoire == "UP" or direction_aleatoire == "DOWN"):
-                abscisse = 250
+                current_fleche.set_absisse(180)
             elif (direction_aleatoire == "LEFT"):
-                abscisse = 100
+                current_fleche.set_absisse(70)
             else:
-                abscisse = 400
-            apparition = random.randint(a, b)
+                current_fleche.set_absisse(280)
+
+            fleches.append(current_fleche)
         return fleches
     
     def fin(self):

@@ -68,7 +68,7 @@ class Jeu:
         
         for i in range(_max) :
             self.niveaux.append(niveau.Niveau(i+1, listeBg[i], listeBoss[i]))
-            self.niveaux[i].set_fleches(listeFleche)
+            self.niveaux[i].set_fleches(self.niveaux[i].generer_fleche_aleatoire())
             self.niveaux[i].add_question(question1)
 
             #print (type(self.niveaux[i]))
@@ -465,9 +465,9 @@ class Jeu:
 
             for i in range (1,(len(fleches_affichage))+1):
                 # Mise à jour de la position de la flèche
-                fleches_affichage[-i].set_ordonnee(fleches_affichage[-i].get_ordonnee() - 1.3)
+                fleches_affichage[-i].set_ordonnee(fleches_affichage[-i].get_ordonnee() - 5)
                 self.screen.blit(pygame.image.load(fleches_affichage[-i].get_img_fleche()).convert(), (fleches_affichage[-i].get_absisse(), fleches_affichage[-i].get_ordonnee()))
-                self.screen.blit(pygame.image.load(fleches_affichage[-i].get_img_fleche()).convert(), (fleches_affichage[-i].get_absisse()+700, fleches_affichage[-i].get_ordonnee()))
+                self.screen.blit(pygame.image.load(fleches_affichage[-i].get_img_fleche()).convert(), (fleches_affichage[-i].get_absisse()+810, fleches_affichage[-i].get_ordonnee()))
 
                 if (fleches_affichage[-i].get_ordonnee() <= 20):
                     for event in pygame.event.get():
