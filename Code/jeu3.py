@@ -470,39 +470,6 @@ class Jeu:
                 self.screen.blit(pygame.image.load(fleches_affichage[-i].get_img_fleche()).convert(), (fleches_affichage[-i].get_absisse()+810, fleches_affichage[-i].get_ordonnee()))
 
                 if (fleches_affichage[-i].get_ordonnee() <= 20):
-                    for event in pygame.event.get():
-                        if event.type == pygame.KEYDOWN:
-                    
-                            #Pour éviter d'avoir un soucis de liste videfleches_affichage[0].get_ordonnee()
-                            if(len(fleches_affichage)>0):
-
-                                if (event.key == pygame.K_UP and fleches_affichage[0].get_direction() == "UP") :
-                                    if(fleches_affichage[0].get_score_modifiable()):
-                                        #print(fleches_affichage[0].get_ordonnee())
-                                        current_niveau.get_fleche(fleches_affichage[0].get_apparition()-1).set_score(fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 100))
-                                        #print(fleches_affichage[0].get_score())
-                                else:
-                                    fleches_affichage[0].set_score(0)
-                            
-                                if (event.key == pygame.K_DOWN and fleches_affichage[0].get_direction() == "DOWN") :
-                                    if(fleches_affichage[0].get_score_modifiable()):
-                                        fleches_affichage[0].set_score(fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 150))
-                                else:
-                                    fleches_affichage[0].set_score(0)
-
-                                if (event.key == pygame.K_LEFT and fleches_affichage[0].get_direction() == "LEFT") :
-                                    if(fleches_affichage[0].get_score_modifiable()):
-                                        fleches_affichage[0].set_score(fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 125))
-                                else:
-                                    fleches_affichage[0].set_score(0)
-                                
-                                if (event.key == pygame.K_RIGHT and fleches_affichage[0].get_direction() == "RIGHT") :
-                                    if(fleches_affichage[0].get_score_modifiable()):
-                                        fleches_affichage[0].set_score(fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 125))
-                                else:
-                                    fleches_affichage[0].set_score(0)
-                    
-            
                     fleches_affichage.pop(-i)
 
             for sprite_joueur in image_joueur:
@@ -622,25 +589,25 @@ class Jeu:
 
                         if (event.key == pygame.K_UP and fleches_affichage[0].get_direction() == "UP") :
                             if(fleches_affichage[0].get_score_modifiable()):
-                                current_niveau.add_score(fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 100))
+                                current_niveau.add_score(fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 50))
                         else:
                             fleches_affichage[0].set_score(0)
                     
                         if (event.key == pygame.K_DOWN and fleches_affichage[0].get_direction() == "DOWN") :
                             if(fleches_affichage[0].get_score_modifiable()):
-                                fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 150)
+                                fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 160)
                         else:
                             fleches_affichage[0].set_score(0)
 
                         if (event.key == pygame.K_LEFT and fleches_affichage[0].get_direction() == "LEFT") :
                             if(fleches_affichage[0].get_score_modifiable()):
-                                fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 125)
+                                fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 110)
                         else:
                             fleches_affichage[0].set_score(0)
                         
                         if (event.key == pygame.K_RIGHT and fleches_affichage[0].get_direction() == "RIGHT") :
                             if(fleches_affichage[0].get_score_modifiable()):
-                                fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 125)
+                                fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 110)
                         else:
                             fleches_affichage[0].set_score(0)
                     
@@ -649,8 +616,6 @@ class Jeu:
             
 
             
-            
-        
         def imgAnimation(self):
             print("boup")
         
