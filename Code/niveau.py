@@ -23,7 +23,9 @@ class Niveau:
         self.current_question = -1
 
     
-        
+    def set_question(self, dicoAttributs):
+        print("gngn")
+                
     def get_num(self):
         return self.num
 

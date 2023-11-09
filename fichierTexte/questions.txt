@@ -1,0 +1,11 @@
+Combien ai-je de doigts ?
+10:True
+20:True
+30:False
+40:False
+
+Combien ai-je de doigts ?
+10:True
+20:True
+30:False
+40:False
