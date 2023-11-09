@@ -415,6 +415,7 @@ class Jeu:
             
     def loadNiveau(self, current_niveau, currentIndex):
         
+        #current_niveau.set_score_necessaire(30)
         
         if (current_niveau.get_boss().getMusic() != None):
             #pygame.mixer.init()

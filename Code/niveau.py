@@ -25,6 +25,9 @@ class Niveau:
     
     def set_question(self, dicoAttributs):
         print("gngn")
+    
+    def set_score_necessaire(self, sc):
+        self.scoreNecessaire = sc
                 
     def get_num(self):
         return self.num
