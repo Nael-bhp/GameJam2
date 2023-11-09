@@ -598,25 +598,29 @@ class Jeu:
 
                         if (event.key == pygame.K_UP and fleches_affichage[0].get_direction() == "UP") :
                             if(fleches_affichage[0].get_score_modifiable()):
+                                pygame.mixer.Channel(1).play(pygame.mixer.Sound('./songs/caisse_claire.wav'))
                                 current_niveau.add_score(fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 50))
                         else:
                             fleches_affichage[0].set_score(0)
                     
                         if (event.key == pygame.K_DOWN and fleches_affichage[0].get_direction() == "DOWN") :
                             if(fleches_affichage[0].get_score_modifiable()):
-                                fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 160)
+                                pygame.mixer.Channel(1).play(pygame.mixer.Sound('./songs/charleston.wav'))
+                                current_niveau.add_score(fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 160))
                         else:
                             fleches_affichage[0].set_score(0)
 
                         if (event.key == pygame.K_LEFT and fleches_affichage[0].get_direction() == "LEFT") :
                             if(fleches_affichage[0].get_score_modifiable()):
-                                fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 110)
+                                pygame.mixer.Channel(1).play(pygame.mixer.Sound('./songs/grosse_caisse.mp3'))
+                                current_niveau.add_score(fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 110))
                         else:
                             fleches_affichage[0].set_score(0)
                         
                         if (event.key == pygame.K_RIGHT and fleches_affichage[0].get_direction() == "RIGHT") :
                             if(fleches_affichage[0].get_score_modifiable()):
-                                fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 110)
+                                pygame.mixer.Channel(1).play(pygame.mixer.Sound('./songs/tambour.wav'))
+                                current_niveau.add_score(fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 110))
                         else:
                             fleches_affichage[0].set_score(0)
                     
