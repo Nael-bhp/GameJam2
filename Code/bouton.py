@@ -10,7 +10,7 @@ class Bouton():
         self.position_x = position_x
         self.position_y = position_y
         self.text_input = texte
-        self.texte = main_font.render(texte, True, "white")
+        self.texte = main_font.render(texte,True, "white")
         self.niveau = niveau
 
         if(image is None) :

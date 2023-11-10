@@ -12,17 +12,118 @@ BLEU_CLAIR = (173, 216, 230)
 NOIR = (0,0,0)
 BLANC = (255,255,255)
 
+# Var globales pour les question de chaque niveau
+question1_php = question.Question("Qui a inventé PHP ?")
+reponse_fausse11_php = "Tim Berners-Lee"
+reponse_fausse21_php = "Linus Torvald"
+reponse_fausse31_php = "Martin Loudoueineix"
+reponse_juste1_php = "Rasmus Lerdorf"
 
-question1 = question.Question("Qui a inventé Linux ?")
-reponse_fausse1 = "JP"
-reponse_fausse2 = "Moi"
-reponse_fausse3 = "Napoléon"
-reponse_juste = "Linus Torvald"
+question1_php.add_reponse(reponse_fausse11_php, False)
+question1_php.add_reponse(reponse_fausse21_php, False)
+question1_php.add_reponse(reponse_fausse31_php, False)
+question1_php.add_reponse(reponse_juste1_php, True)
 
-question1.add_reponse(reponse_fausse1, False)
-question1.add_reponse(reponse_fausse2, False)
-question1.add_reponse(reponse_fausse3, False)
-question1.add_reponse(reponse_juste, True)
+question2_php = question.Question("Quel est le logo de PHP ?")
+reponse_fausse12_php = "Un éléphant"
+reponse_fausse22_php = "Une tasse de café"
+reponse_fausse32_php = "Tux"
+reponse_juste2_php = "Duke"
+
+question2_php.add_reponse(reponse_fausse12_php, False)
+question2_php.add_reponse(reponse_juste2_php, True)
+question2_php.add_reponse(reponse_fausse22_php, False)
+question2_php.add_reponse(reponse_fausse32_php, False)
+
+question1_maths = question.Question("Lequel est une approximation de phi ?")
+reponse_juste1_maths = "1.61"
+reponse_fausse11_maths = "3.14"
+reponse_fausse21_maths = "42"
+reponse_fausse31_maths = "147"
+
+question1_maths.add_reponse(reponse_juste1_maths, True)
+question1_maths.add_reponse(reponse_fausse11_maths, False)
+question1_maths.add_reponse(reponse_fausse21_maths, False)
+question1_maths.add_reponse(reponse_fausse31_maths, False)
+
+question2_maths = question.Question("La conjecture de Pointcarré est-elle vraie ?")
+reponse_juste2_maths = "Oui"
+reponse_fausse12_maths = "Non"
+reponse_fausse22_maths = "Ce n'est pas démontré"
+reponse_fausse32_maths = "Cela n'existe pas"
+
+question2_maths.add_reponse(reponse_fausse12_maths, False)
+question2_maths.add_reponse(reponse_fausse22_maths, False)
+question2_maths.add_reponse(reponse_fausse32_maths, False)
+question2_maths.add_reponse(reponse_juste2_maths, True)
+
+question1_shell = question.Question("Quel commande permet de lister les processus ?")
+reponse_juste1_shell = "ps -ef"
+reponse_fausse11_shell = "cat"
+reponse_fausse21_shell = "mkdir"
+reponse_fausse31_shell = "1s -h"
+
+question1_shell.add_reponse(reponse_juste1_shell, True)
+question1_shell.add_reponse(reponse_fausse11_shell, False)
+question1_shell.add_reponse(reponse_fausse21_shell, False)
+question1_shell.add_reponse(reponse_fausse31_shell, False)
+
+question2_shell = question.Question("Qui est le créateur de Linux ?")
+reponse_juste2_shell = "Linus Torvald"
+reponse_fausse12_shell = "Evann Colin"
+reponse_fausse22_shell = "Tim Berners-Lee"
+reponse_fausse32_shell = "Cedric Villani"
+
+question2_shell.add_reponse(reponse_fausse12_shell, False)
+question2_shell.add_reponse(reponse_fausse22_shell, False)
+question2_shell.add_reponse(reponse_fausse32_shell, False)
+question2_shell.add_reponse(reponse_juste2_shell, True)
+
+question1_c = question.Question("Que fait une méthode const ?")
+reponse_juste1_c = "Elle ne modifie pas ses paramètres"
+reponse_fausse11_c = "Elle renvoie toujours la même chose"
+reponse_fausse21_c = "Elle ne fait rien"
+reponse_fausse31_c = "Elle génère une erreur"
+
+question1_c.add_reponse(reponse_fausse11_c, False)
+question1_c.add_reponse(reponse_juste1_c, True)
+question1_c.add_reponse(reponse_fausse21_c, False)
+question1_c.add_reponse(reponse_fausse31_c, False)
+
+question2_c = question.Question("Quelle classe permet de gérer des listes ?")
+reponse_juste2_c = "Vector"
+reponse_fausse12_c = "ArrayList"
+reponse_fausse22_c = "Aucune"
+reponse_fausse32_c = "Tuple"
+
+question2_c.add_reponse(reponse_fausse12_c, False)
+question2_c.add_reponse(reponse_fausse22_c, False)
+question2_c.add_reponse(reponse_fausse32_c, False)
+question2_c.add_reponse(reponse_juste2_c, True)
+
+question1_reseau = question.Question("Quel masque correspond à une route par défaut ?")
+reponse_juste1_reseau = "0.0.0.0"
+reponse_fausse11_reseau = "255.255.255.255"
+reponse_fausse21_reseau = "255.255.0.0"
+reponse_fausse31_reseau = "255.255.255.0"
+
+question1_reseau.add_reponse(reponse_fausse11_reseau, False)
+question1_reseau.add_reponse(reponse_juste1_reseau, True)
+question1_reseau.add_reponse(reponse_fausse21_reseau, False)
+question1_reseau.add_reponse(reponse_fausse31_reseau, False)
+
+question2_reseau = question.Question("Lequel de ces élements ne peut pas être un terminal ?")
+reponse_juste2_reseau = "Un routeur"
+reponse_fausse12_reseau = "Un ordinateur portable"
+reponse_fausse22_reseau = "Une tour"
+reponse_fausse32_reseau = "Un téléphone"
+
+question2_reseau.add_reponse(reponse_fausse12_reseau, False)
+question2_reseau.add_reponse(reponse_fausse22_reseau, False)
+question2_reseau.add_reponse(reponse_fausse32_reseau, False)
+question2_reseau.add_reponse(reponse_juste2_reseau, True)
+
+
 
 
 class Jeu:
@@ -66,11 +167,25 @@ class Jeu:
         for i in range(_max) :
             self.niveaux.append(niveau.Niveau(i+1, listeBg[i], listeBoss[i]))
             self.niveaux[i].set_fleches(self.niveaux[i].generer_fleche_aleatoire())
-            self.niveaux[i].add_question(question1)
 
             #print (type(self.niveaux[i]))
             #
             #print(self.niveaux[i])
+        self.niveaux[0].add_question(question1_php)
+        self.niveaux[0].add_question(question2_php)
+        
+        self.niveaux[1].add_question(question1_maths)
+        self.niveaux[1].add_question(question2_maths)
+        
+        self.niveaux[2].add_question(question1_shell)
+        self.niveaux[2].add_question(question2_shell)
+        
+        self.niveaux[3].add_question(question1_c)
+        self.niveaux[3].add_question(question2_c)
+        
+        self.niveaux[4].add_question(question1_reseau)
+        self.niveaux[4].add_question(question2_reseau)
+
             
             
         #print(len(self.niveaux)) #OK car que 2 bg
@@ -487,6 +602,7 @@ class Jeu:
             
             for sprite_joueur in image_boss:
                 bossSpritos = pygame.image.load(sprite_joueur).convert()
+                bossSpritos.set_colorkey((0, 0, 0))
                 image_rect_b = bossSpritos.get_rect()
                 image_rect_b.bottomright = (self.screen.get_width() -10 , self.screen.get_height() -10)
                 self.screen.blit(bossSpritos, image_rect_b)
@@ -510,19 +626,21 @@ class Jeu:
                         #Liste des réponses pour une question
                         key_list = [k  for (k, val) in question.get_reponses().items()]
                         
+                        print(key_list)
+                        
                         current_question = font.render(question.get_intitule(),1,(255,255,255))
                         #On créer un bouton par réponse
-                        reponse1 = bouton.Bouton(600,400,key_list[0])
-                        reponse2 = bouton.Bouton(600,500,key_list[1])
-                        reponse3 = bouton.Bouton(600,600,key_list[2])
-                        reponse4 = bouton.Bouton(600,700,key_list[3])
+                        reponse1 = bouton.Bouton(600,300,key_list[0])
+                        reponse2 = bouton.Bouton(600,400,key_list[1])
+                        reponse3 = bouton.Bouton(600,500,key_list[2])
+                        reponse4 = bouton.Bouton(600,600,key_list[3])
 
                         boutons_question.append(reponse1)
                         boutons_question.append(reponse2)
                         boutons_question.append(reponse3)
                         boutons_question.append(reponse4)
 
-                        self.screen.blit(current_question, (500, 300))
+                        self.screen.blit(current_question, (100, 200))
                         pygame.display.flip()
 
                         #Gestion de la mise à jour des boutons
@@ -600,29 +718,29 @@ class Jeu:
                             if(fleches_affichage[0].get_score_modifiable()):
                                 pygame.mixer.Channel(1).play(pygame.mixer.Sound('./songs/caisse_claire.wav'))
                                 current_niveau.add_score(fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 50))
-                        else:
-                            fleches_affichage[0].set_score(0)
+                                fleches_affichage.pop(0)
+
                     
                         if (event.key == pygame.K_DOWN and fleches_affichage[0].get_direction() == "DOWN") :
                             if(fleches_affichage[0].get_score_modifiable()):
                                 pygame.mixer.Channel(1).play(pygame.mixer.Sound('./songs/charleston.wav'))
                                 current_niveau.add_score(fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 160))
-                        else:
-                            fleches_affichage[0].set_score(0)
+                                fleches_affichage.pop(0)
+
 
                         if (event.key == pygame.K_LEFT and fleches_affichage[0].get_direction() == "LEFT") :
                             if(fleches_affichage[0].get_score_modifiable()):
                                 pygame.mixer.Channel(1).play(pygame.mixer.Sound('./songs/grosse_caisse.mp3'))
                                 current_niveau.add_score(fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 110))
-                        else:
-                            fleches_affichage[0].set_score(0)
+                                fleches_affichage.pop(0)
+
                         
                         if (event.key == pygame.K_RIGHT and fleches_affichage[0].get_direction() == "RIGHT") :
                             if(fleches_affichage[0].get_score_modifiable()):
                                 pygame.mixer.Channel(1).play(pygame.mixer.Sound('./songs/tambour.wav'))
                                 current_niveau.add_score(fleches_affichage[0].calcul_score(fleches_affichage[0].get_ordonnee(), 110))
-                        else:
-                            fleches_affichage[0].set_score(0)
+                                fleches_affichage.pop(0)
+                        
                     
             
             pygame.display.flip()
