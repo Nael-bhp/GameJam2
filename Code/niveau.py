@@ -1,6 +1,5 @@
 import fleche
 import time
-import typing
 import random
 
 class Niveau:
@@ -18,28 +17,20 @@ class Niveau:
         self.isWon = False
         self.debloque = False
         
-        self.timer = time.time()
         self.current_flech = -1
         self.current_question = -1
 
-    
-    def set_question(self, dicoAttributs):
-        print("gngn")
-    
     def set_score_necessaire(self, sc):
         self.scoreNecessaire = sc
                 
     def get_num(self):
         return self.num
 
-
     def get_decor(self):
         return self.decor       # CHEMIN VERS LE FICHIER IMAGE
 
-
     def get_current_fleche(self):
         return self.current_flech
-
 
     def get_boss(self):
         return self.boss
@@ -65,7 +56,6 @@ class Niveau:
     def get_questions(self):
         return self.questions 
 
-
     # Setters
     def setAll(self,dicoAttributs):
         for cle, valeur in dicoAttributs.items():
@@ -74,7 +64,6 @@ class Niveau:
             else:
                 print(f"L'attribut {cle} n'existe pas dans la classe.")
                 
-
     def setDebloquer(self):
         self.debloque=True
         
@@ -84,27 +73,16 @@ class Niveau:
     def setIsWon(self):
         if(self.score >= self.scoreNecessaire): self.isWon=True
         
-    
     def getIsWon(self):
         return self.isWon
     
-    def set_timer(self):
-        self.timer = time.time() # sert peut-être à rien
-
-
     def set_current_fleche(self):
         self.current_flech = 1
-
-
-    def calcul_temps(self):
-        return time.time() - self.timer # SERT AU CALCUL DU SCORE
-
 
     def add_fleche(self, fleche):
         self.fleches.append(fleche)
         if (self.current_flech == -1): #On passe d'une liste vide à une liste contenant des flèches
             self.current_flech = 0 
-
 
     def add_question(self, question):
         self.questions.append(question)
@@ -112,25 +90,14 @@ class Niveau:
             self.current_question = 0
 
 
-
-    def current_fleche(self) -> fleche :
+    def current_fleche(self):
         return self.fleches[self.current_flech] 
-
-
 
     def next_fleche(self):
         self.current_flech += 1 # sert peut-être à rien
 
-
-
-    def tri_fleches(self):
-        self.fleches.sort(key=fleche.get_apparition) # la flèche qui a le temps le plus petit apparaît en premier
-
-
     def fin(self):
         return self.current_flech == len(self.fleches)-1
-
-
 
     """
     Fonction de calcul du score final 
@@ -191,11 +158,3 @@ class Niveau:
     
     def fin(self):
         return self.current_flech == len(self.fleches)-1
-
-
-    """
-    def fin_niveau(self):
-        if (self.current_fleche >= len(self.fleches)-1):
-            score_fin = self.total_score()
-            pass    # TODO : afficher le score et passer au niveau suivant
-    """

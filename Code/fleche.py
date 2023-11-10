@@ -1,9 +1,4 @@
 
-import pygame
-import math
-from pygame.sprite import Group
-
-
 class Fleche():
     def __init__(self, direction, apparition, img_fleche, absisse, ordonnee):
 

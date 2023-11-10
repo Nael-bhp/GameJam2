@@ -84,7 +84,7 @@ reponse_juste1_c = "Elle ne modifie pas ses paramètres"
 reponse_fausse11_c = "Elle renvoie toujours la même chose"
 reponse_fausse21_c = "Elle ne fait rien"
 reponse_fausse31_c = "Elle génère une erreur"
-
+ 
 question1_c.add_reponse(reponse_fausse11_c, False)
 question1_c.add_reponse(reponse_juste1_c, True)
 question1_c.add_reponse(reponse_fausse21_c, False)
@@ -140,13 +140,11 @@ class Jeu:
         # Creation liste de boss
         listeDicoBoss = Outil.selectAttributsInFile("./fichierTexte/boss.txt", "img_perso")
         listeBoss = []
-        #print(listeDicoBoss)
         
         for elem in listeDicoBoss :
             currentBoss = boss.Boss()
             currentBoss.setAll(elem)
             listeBoss.append(currentBoss)
-            #print(currentBoss)
         
         
         # Creation des background à la main (mais faire par fichier après)
@@ -159,18 +157,12 @@ class Jeu:
         
         # Creation liste de niveaux
         self.niveaux = []
-        
-        #print(type(listeBoss[0]))
-        #print(type(listeBoss[0].getNom()))
-        
+                
         
         for i in range(_max) :
             self.niveaux.append(niveau.Niveau(i+1, listeBg[i], listeBoss[i]))
             self.niveaux[i].set_fleches(self.niveaux[i].generer_fleche_aleatoire())
 
-            #print (type(self.niveaux[i]))
-            #
-            #print(self.niveaux[i])
         self.niveaux[0].add_question(question1_php)
         self.niveaux[0].add_question(question2_php)
         
@@ -185,10 +177,6 @@ class Jeu:
         
         self.niveaux[4].add_question(question1_reseau)
         self.niveaux[4].add_question(question2_reseau)
-
-            
-            
-        #print(len(self.niveaux)) #OK car que 2 bg
         
         self.menu_prinipal()
             
@@ -252,7 +240,6 @@ class Jeu:
     
 
     def afficherRegles(self):
-        #print("Boup")
         police = pygame.font.Font(None, 24)
         couleur_texte = "white"
         
@@ -265,10 +252,10 @@ class Jeu:
         suite = pygame.font.SysFont("cambria", 24).render("Vous affrontez à chaque niveau un boss et devez obtenir plus de points que lui", 1, (255, 255, 255))
         suite2 = pygame.font.SysFont("cambria", 24).render("Et répondre à des questions posées par le boss", 1, (255, 255, 255))
         
-        nom_rect = noms_texte.get_rect(center=(640, 100))
-        debut_rect = debut.get_rect(center=(640, 150))
-        suite_rect = suite.get_rect(center=(640, 200))
-        suite2_rect = suite2.get_rect(center=(640, 250))
+        nom_rect = noms_texte.get_rect(center=(640, 300))
+        debut_rect = debut.get_rect(center=(640, 350))
+        suite_rect = suite.get_rect(center=(640, 400))
+        suite2_rect = suite2.get_rect(center=(640, 450))
         
         while continuer:
             
@@ -303,61 +290,6 @@ class Jeu:
 
             pygame.display.flip()
         
-    def afficherCreditsDyn(self):
-        continuer = True
-        noms = [
-            ("Responsable graphique : Evann Colin", 620),  # Commence en bas de l'écran
-            ("Développeurs : Naël Ben Hamida -- Pharabot, Axelle Broyer, Martin Loudoueineix", 670),
-            ("Responsable storyboard : Martin Loudoueineix", 720)
-            ("Musique d'accueil : Mexico, Alestorm", 720)
-            ("Musique boss PHP : Seven Nation Army, The White Stripes", 720)
-            ("Musique boss C++ : My melody my rules, Claerorn", 720)
-            ("Musique boss Maths : Through The Fire And Flames, DragonForce", 720)
-            ("Musique boss Réseau : Lone Digger, Caravan Palace", 720)
-            ("Musique boss Shell : Hayloft, Mother Mother", 720)
-        ]
-
-        while continuer:
-            
-            self.screen.fill("black")
-            souris_utilisateur = pygame.mouse.get_pos()
-            
-            # Test chargement du bg 
-            
-            
-
-            # Affichage des noms qui montent de bas en haut
-            noms_texte = pygame.font.SysFont("cambria", 30).render("Crédits:", 1, (255, 255, 255))
-            noms_rect = noms_texte.get_rect(center=(640, 100))
-            self.screen.blit(noms_texte, noms_rect)
-
-            bouton_menu_principal = bouton.Bouton(200, 50, "Menu Principal")
-            bouton_menu_principal.changeColor(souris_utilisateur)
-            bouton_menu_principal.maj()
-
-            # Mettre à jour la position verticale des noms et les afficher
-            for nom, y_pos in noms:
-                nom_texte = pygame.font.SysFont("cambria", 24).render(nom, 1, (255, 255, 255))
-                nom_rect = nom_texte.get_rect(center=(640, y_pos))
-                self.screen.blit(nom_texte, nom_rect)
-                # Mettre à jour la position verticale pour les faire monter
-                y_pos -= 1
-
-            # Supprimer les noms qui ont atteint le haut de la page
-            noms = [(nom, y_pos) for nom, y_pos in noms if y_pos > 0]  # Supprimer si la position est au-dessus de 0 (haut de l'écran)
-
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    continuer = False
-
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    if bouton_menu_principal.checkForInput(souris_utilisateur):
-                        # Retour au menu principal
-                        self.menu_prinipal()
-                        return  # Arrête la boucle actuelle
-
-            pygame.display.flip()
 
 
             
@@ -574,13 +506,11 @@ class Jeu:
 
             
             
-            #print(current_niveau.get_current_fleche())
 
             if(time.time() - temps >= current_niveau.get_fleche(current_niveau.get_current_fleche()).get_apparition()):
 
                 if(current_niveau.get_fleche(current_niveau.get_current_fleche()) not in fleches_affichage):
                     fleches_affichage.append(current_niveau.get_fleche(current_niveau.get_current_fleche()))
-                    #print (fleches_affichage)
                 if(not current_niveau.fin()):
                     current_niveau.next_fleche()
             
@@ -625,9 +555,7 @@ class Jeu:
 
                         #Liste des réponses pour une question
                         key_list = [k  for (k, val) in question.get_reponses().items()]
-                        
-                        print(key_list)
-                        
+                                                
                         current_question = font.render(question.get_intitule(),1,(255,255,255))
                         #On créer un bouton par réponse
                         reponse1 = bouton.Bouton(600,300,key_list[0])
@@ -745,10 +673,6 @@ class Jeu:
             
             pygame.display.flip()
             
-
-            
-        def imgAnimation(self):
-            print("boup")
         
     
 
@@ -817,8 +741,6 @@ def test():
         
     for i in range(_max):
         print(niveaux[i])
-        #print(niveaux[i].get_boss())
         
-#test()
 
     

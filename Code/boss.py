@@ -1,6 +1,3 @@
-
-
-
 class Boss():
     
     def __init__(self, nom ="", taux_reussite=0, img_perso=None, music = None):
@@ -41,11 +38,4 @@ class Boss():
     
     def __str__(self):
         return "Nom : " + self.nom + "| Taux : " + self.taux_reussite + "| Img : " + self.img_perso
-        
-    
-    
-#boss1 = Boss()
-#boss1 = Boss(nom="Garagamoule", taux_reussite=0.6, img_perso=["./Img/user.png", "./Img/boss1.png"])
-
-#print(boss1)
 
