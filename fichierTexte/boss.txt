@@ -6,7 +6,7 @@ music
 PHP
 0.6
 ./Img/php/php_boss0.png,./Img/php/php_boss1.png,./Img/php/php_boss2.png
-./songs/maths_song.mp3
+./songs/php_song.mp3
 
 Maths
 0.6
