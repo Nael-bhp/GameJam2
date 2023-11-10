@@ -54,11 +54,11 @@ class Fleche():
         self.ordonnee = ordonnee
 
     def calcul_score(self, score, ordonnee):
-        if score <  (ordonnee-100) or score > (ordonnee+100):
+        if score <  (ordonnee-30) or score > (ordonnee+30):
             return 0
-        elif score < (ordonnee -90) or score > (ordonnee+90):
+        elif score < (ordonnee -20) or score > (ordonnee+20):
             return 1
-        elif score < (ordonnee-80) or score > (ordonnee+80):
+        elif score < (ordonnee-10) or score > (ordonnee+10):
             return 2
         else:
             return 3

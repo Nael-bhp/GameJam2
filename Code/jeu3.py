@@ -587,7 +587,7 @@ class Jeu:
 
             for i in range (1,(len(fleches_affichage))+1):
                 # Mise à jour de la position de la flèche
-                fleches_affichage[-i].set_ordonnee(fleches_affichage[-i].get_ordonnee() - 5)
+                fleches_affichage[-i].set_ordonnee(fleches_affichage[-i].get_ordonnee() - 7)
                 self.screen.blit(pygame.image.load(fleches_affichage[-i].get_img_fleche()).convert(), (fleches_affichage[-i].get_absisse(), fleches_affichage[-i].get_ordonnee()))
                 self.screen.blit(pygame.image.load(fleches_affichage[-i].get_img_fleche()).convert(), (fleches_affichage[-i].get_absisse()+810, fleches_affichage[-i].get_ordonnee()))
 
